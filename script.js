@@ -10,9 +10,10 @@ window.onload = () => {
 
     // API service
     const service = new google.maps.places.PlacesService(map);
-    
-  
-      const address = document.getElementById("address").value;
+
+    // Search Box
+    const searchBox = document.getElementById("search-Box");
+
   
      /* if (!address) {
         alert("Please enter a valid address or postal code.");
