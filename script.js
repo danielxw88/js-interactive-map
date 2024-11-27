@@ -16,11 +16,41 @@ window.onload = () => {
 
     // Restaurant markers
     const restaurantMarkers = [];
-    
 
+    // Search Box Input
 
+    searchBox.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") {
+            const searchInput = searchBox.value;
 
-  
+            if (!searchInput) {
+                alert("Please enter a search term...");
+                return;
+            }
+
+            const request = {
+                location: mapCenter,
+                radius: 50000, // km radius
+                keyword: searchInput,
+                type: "restaurant",
+            };
+
+            service.nearbySearch(request, (results, status) => {
+                if (status === google.maps.places.PlacesServicesStatus.OK){
+                    clearMarkers();
+                    results.forEach((place) => {
+                        if (place.geometry && place.geometry.location) {{
+                            addRestaurantMarker(place);
+                        }
+            });
+        } else {
+            console.error("Failed due to: " + status);
+            alert("Please try new search");
+        }
+    });
+}
+});
+
      /* if (!address) {
         alert("Please enter a valid address or postal code.");
         return;
