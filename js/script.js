@@ -2,6 +2,9 @@
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("location-form");
     const mapDiv = document.getElementById("map");
+    const clearMarkersBtn = document.getElementById("clear-markers");
+    let map;
+    let markers = [];
   
     form.addEventListener("submit", async (event) => {
       event.preventDefault(); // Prevent form submission
