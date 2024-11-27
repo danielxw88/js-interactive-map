@@ -7,9 +7,10 @@ window.onload = () => {
         center: mapCenter,
         zoom: 12,
     });
-  
-    form.addEventListener("submit", async (event) => {
-      event.preventDefault(); // Prevent form submission
+
+    // API service
+    const service = new google.maps.places.PlacesService(map);
+    
   
       const address = document.getElementById("address").value;
   
