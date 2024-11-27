@@ -34,6 +34,14 @@ document.addEventListener("DOMContentLoaded", () => {
             center: { lat, lng },
             zoom: 15,
           });
+
+          // Click event to the map
+          map.addListener("click", (event) => {
+            addMarker(event.latLng);
+          });
+        } else {
+          map.setCenter({ lat, lng });
+        }
   
           // Add a marker to the map
           new google.maps.Marker({
@@ -49,5 +57,16 @@ document.addEventListener("DOMContentLoaded", () => {
         alert("An error occurred. Please try again later.");
       }
     });
-  });
+
+    // Adding marker fuction
+
+  function addMarker(location, title = "Marker") {
+    const marker = new google.maps.Marker({
+      position: location,
+      map: map,
+      title: title,
+    });
+  }
+
+
   
