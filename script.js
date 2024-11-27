@@ -1,4 +1,6 @@
-// Wait for the DOM to load
+window.onload = () => {
+    // Map center coordinates for Toronto,Ont
+    const mapCenter = {lat: 43.65107. lng: -79.347015};
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("location-form");
     const mapDiv = document.getElementById("map");
