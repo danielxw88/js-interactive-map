@@ -14,6 +14,12 @@ window.onload = () => {
     // Search Box
     const searchBox = document.getElementById("search-Box");
 
+    // Restaurant markers
+    const restaurantMarkers = [];
+    
+
+
+
   
      /* if (!address) {
         alert("Please enter a valid address or postal code.");
