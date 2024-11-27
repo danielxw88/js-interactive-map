@@ -6,8 +6,18 @@
     <title>Interactive Map</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="js/script.js" defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAocdQS4fgY016FzJX-P6JfMAagjdhHnjs" defer></script>
 </head>
 <body>
-    
+    <h1>Find Food Places in Toronto</h1>
+  <form id="location-form">
+    <label for="address">Enter Postal Code or Address:</label>
+    <input type="text" id="address" placeholder="e.g., M5H 2N2 or CN Tower" required>
+    <button type="submit">Show Map</button>
+  </form>
+  <div id="map"></div>
+
+  
+  
 </body>
 </html>
