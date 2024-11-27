@@ -1,9 +1,12 @@
 window.onload = () => {
     // Map center coordinates for Toronto,Ont
     const mapCenter = {lat: 43.65107. lng: -79.347015};
-document.addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById("location-form");
-    const mapDiv = document.getElementById("map");
+
+    // Initialize the map
+    const map = new google.maps.Map(document.getElementById("map"), {
+        center: mapCenter,
+        zoom: 12,
+    });
   
     form.addEventListener("submit", async (event) => {
       event.preventDefault(); // Prevent form submission
