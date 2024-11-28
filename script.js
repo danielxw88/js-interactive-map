@@ -51,23 +51,41 @@ window.onload = () => {
 }
 });
 
-     /* if (!address) {
-        alert("Please enter a valid address or postal code.");
-        return;
-      }*/
-  
-      try {
-        // Use the Geocoding API to get coordinates for the address
-        const response = await fetch(
-          `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(
-            address
-          )}&key=AIzaSyAocdQS4fgY016FzJX-P6JfMAagjdhHnjs`
-        );
-        const data = await response.json();
-  
-        if (data.status === "OK") {
-          const { lat, lng } = data.results[0].geometry.location;
-  
+// Add marker for restaurant
+const addRestaurantMarker = (place) => {
+    const marker = new google.maps.Marker({
+        map: map,
+        position: place.geometry.location,
+        title: place.name,
+        });
+        const infoWindow = new google.maps.InfoWindow({
+            content: `
+            <div>
+                <h3> ${place.name}</h3>
+                <p><strong>Adrress:</strong> ${place.vicinity || "N/A"}</p>
+                <p><strong>Rating:</strong> ${place.rating || "N/A"}</p>
+                <p><strong>Phone:</strong> ${place.formatted_phone_number || "N/A"}</p>
+                <p><strong>Price Level:</strong> ${
+                place.price_level ? "$" .repeat(place.price_level) : "N/A" 
+        }</p>
+        <p><strong>Hours:</strong> ${
+        place.opening_hours?.open_now
+        ? "Open"
+        : "Closed"
+        }</p>
+        <a href="${place.website || "#"}"target=" blank">Visit Website</a>
+        <div>
+        `
+    });
+
+    marker.addListener("click", () => {
+        infowWindow.open(map, marker);
+    });
+
+    restaurantMarkers.push(marker);
+};   
+
+
           // Display the map and center it on the coordinates
           mapDiv.style.display = "block";
           const map = new google.maps.Map(mapDiv, {
