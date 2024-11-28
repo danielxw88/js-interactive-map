@@ -1,6 +1,6 @@
 window.onload = () => {
     // Map center coordinates for Toronto,Ont
-    const mapCenter = {lat: 43.65107. lng: -79.347015};
+    const mapCenter = { lat: 43.65107, lng: -79.347015 };
 
     // Initialize the map
     const map = new google.maps.Map(document.getElementById("map"), {
@@ -36,10 +36,10 @@ window.onload = () => {
             };
 
             service.nearbySearch(request, (results, status) => {
-                if (status === google.maps.places.PlacesServicesStatus.OK){
+                if (status === google.maps.places.PlacesServiceStatus.OK) {
                     clearMarkers();
                     results.forEach((place) => {
-                        if (place.geometry && place.geometry.location) {{
+                        if (place.geometry && place.geometry.location) {
                             addRestaurantMarker(place);
                         }
             });
@@ -91,19 +91,3 @@ const clearMarkers = () => {
     restaurantMarkers.length = 0;
 };
 };
-  
-          // Add a marker to the map
-          new google.maps.Marker({
-            position: { lat, lng },
-            map: map,
-            title: address,
-          });
-        } else {
-          alert("Unable to find the location. Please try again!");
-        }
-      } catch (error) {
-        console.error("Error fetching geolocation:", error);
-        alert("An error occurred. Please try again later.");
-      }
-    });
-  });
