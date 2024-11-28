@@ -85,13 +85,12 @@ const addRestaurantMarker = (place) => {
     restaurantMarkers.push(marker);
 };   
 
-
-          // Display the map and center it on the coordinates
-          mapDiv.style.display = "block";
-          const map = new google.maps.Map(mapDiv, {
-            center: { lat, lng },
-            zoom: 15,
-          });
+// Function to clear restaurant markers
+const clearMarkers = () => {
+    restaurantMarkers.forEach((marker) => marker.setMap(null));
+    restaurantMarkers.length = 0;
+};
+};
   
           // Add a marker to the map
           new google.maps.Marker({
