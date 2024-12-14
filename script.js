@@ -122,14 +122,19 @@ window.onload = () => {
 
     savedRestaurants.forEach((restaurant) => {
       const listItem = document.createElement("li");
+      listItem.classList.add('saved-item');
       listItem.innerHTML = `
         <strong>${restaurant.name}</strong><br>
         Address: ${restaurant.address}<br>
         Rating: ${restaurant.rating || "N/A"}<br>
         Price Level: ${restaurant.priceLevel ? "$".repeat(restaurant.priceLevel) : "N/A"}<br>
-        <button onclick="removeRestaurant('${restaurant.name}')">Remove</button>
+        <button id="removeRestaurantBtn">Remove</button>
       `;
       resultsList.appendChild(listItem);
+
+      document.getElementById("removeRestaurantBtn").addEventListener('click', () => {
+        removeRestaurant(restaurant.name)
+      })
     });
   };
 
