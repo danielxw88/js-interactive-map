@@ -3,12 +3,13 @@ body{
     margin: 0;
     position: relative;
   }
-  #map {
+  
+#map {
     height: 100vh;
     width: 100%;
-  }
+}
 
-  #current-location-button{
+#current-location-button{
     position: absolute;
     bottom: 30px;
     left: 20px;
@@ -22,22 +23,49 @@ body{
     align-items: center;
     justify-content: center;
     cursor: pointer;
-  }
+}
 
-  .current-location-icon{
+.current-location-icon{
     width: 30px;
     height: 30px;
-  }
+}
 
-  #search-container {
+.title{
+    color:white;
+    text-align: center;
+    font-size: larger;
+}
+
+.search-bar-container {
     margin: 10px;
     position: absolute;
     z-index: 20;
     top: 30px;
     left: 50%;
     transform: translate(-50%, 0);
-  }
-  #search-box {
-    width: 300px;
+    background-color: #1a1616;
+    border: 1px solid #141212;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 12px;
+    width: 31%;
+}
+
+.craving-input {
+    width: 100%; 
+    padding: 10px; 
+    border: none; 
+    outline: none;
+    font-size: 16px; 
+    box-sizing: border-box; 
+}
+
+
+#search-box {
+    width: 100%;
     padding: 10px;
-  }
+    border:none;
+    outline: none;
+    font-size: 16px;
+    box-sizing: border-box;
+}

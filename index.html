@@ -11,19 +11,17 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div id="search-container">
-    <input
-      id="search-box"
-      type="text"
-      placeholder="What are you craving? (e.g., pizza, sushi)"
-    />
+  <div class="search-bar-container">
+    <h2 class="title">Food Places in Toronto</h2>
+    <input id="search-box" type="text" class="craving-input" placeholder="What are you craving? (e.g., pizza, sushi)">
   </div>
+
   <div id="current-location-button"> 
     <img class="current-location-icon" src="https://cdn-icons-png.flaticon.com/512/17727/17727194.png" />
   </div>
   <div id="map"></div>
   <div id="sidebar">
-    <h2>Saved Restaurants</h2>
+    <h2 class="saved-restaurants">Saved Restaurants</h2>
     <ul id="results-list">
       <!-- Dynamically populated list of saved restaurants -->
     </ul>
