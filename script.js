@@ -85,6 +85,37 @@ const addRestaurantMarker = (place) => {
     restaurantMarkers.push(marker);
 };   
 
+ // Show content in the sidebar
+ const showSidebarContent = (place) => {
+    const videoContainer = document.getElementById("video-container");
+
+    // Placeholder videos for TikTok or Instagram
+    const videoHTML = `
+    <div class="video=thumbnail">
+    img src="https://via.placeholder.com/150" alt="${place.name} Thumbnail">
+    <p>${place.name}</p>
+    </div>
+    `;
+  
+    videoContainer.innerHTML = `
+    <div>
+    <h3>${place.name}</h3>
+    <p><strong>Address:</strong> ${place.vicinity || "N/A"}</p>
+    <p><strong>Rating:</strong> ${place.rating || "N/A"}</p>
+    <p><strong>Price Level:</strong> ${
+      place.price_level? "$".repeat(place.price_level) : "N/A"
+    }</p>
+    <p><strong>Hours:</strong> ${
+      place.opening_hours?.open_now
+       ? "Open Now!"
+        : "Currently Closed"
+    }</p>
+    <p><strong>Aesthetics:</strong> Beatiful interiors with great vides.</p>
+    <p><strong>Location Size:</strong> Medium-sized space, perfect for groups.</p>
+    ${videoHTML}
+    </div>
+      `;
+
 // Function to clear restaurant markers
 const clearMarkers = () => {
     restaurantMarkers.forEach((marker) => marker.setMap(null));
