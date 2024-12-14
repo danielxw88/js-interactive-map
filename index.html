@@ -2,24 +2,13 @@
 <html>
 <head>
   <title>Food Craving Finder</title>
-  <style>
-    #map {
-      height: 500px;
-      width: 100%;
-    }
-    #search-container {
-      margin: 10px;
-    }
-    #search-box {
-      width: 300px;
-      padding: 10px;
-    }
   </style>
   <script
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3RMZ-hZkQ49YuUX9uWb2Dl3ZlVhyjgLc&libraries=places&v"
-    defer
-  ></script>
+    defer>
+  </script>
   <script src="script.js" defer></script>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div id="search-container">
@@ -28,6 +17,9 @@
       type="text"
       placeholder="What are you craving? (e.g., pizza, sushi)"
     />
+  </div>
+  <div id="current-location-button"> 
+    <img class="current-location-icon" src="https://cdn-icons-png.flaticon.com/512/17727/17727194.png" />
   </div>
   <div id="map"></div>
   <div id="sidebar">
