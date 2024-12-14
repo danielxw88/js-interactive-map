@@ -17,6 +17,18 @@ window.onload = () => {
     // Array to store restaurant markers
     const restaurantMarkers = [];
    
+    // For current location button functionality
+    document.getElementById("current-location-button").addEventListener('click', () => {
+      let lat = 0;
+      let long = 0;
+      navigator.geolocation.getCurrentPosition((position) => {
+        lat = position.coords.latitude;
+        long = position.coords.longitude;
+        map.setCenter(new google.maps.LatLng(lat, long));
+        map.setZoom(20);
+      });
+    })
+
     // Handle search box input
     searchBox.addEventListener("keypress", (e) => {
       if (e.key === "Enter") {
