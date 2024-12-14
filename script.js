@@ -2,9 +2,6 @@ window.onload = () => {
     // Map center coordinates for Toronto, Ontario
     const mapCenter = { lat: 43.65107, lng: -79.347015 };
    
-
-    document.getElementById("map").style.display = "block";
-
     // Initialize the map
     const map = new google.maps.Map(document.getElementById("map"), {
       center: mapCenter,
@@ -59,86 +56,86 @@ window.onload = () => {
         map: map,
         position: place.geometry.location,
         title: place.name,
-
-        });
-        const infoWindow = new google.maps.InfoWindow({
-            content: `
-            <div>
-                <h3> ${place.name}</h3>
-                <p><strong>Adrress:</strong> ${place.vicinity || "N/A"}</p>
-                <p><strong>Rating:</strong> ${place.rating || "N/A"}</p>
-                <p><strong>Phone:</strong> ${place.formatted_phone_number || "N/A"}</p>
-                <p><strong>Price Level:</strong> ${
-                place.price_level ? "$" .repeat(place.price_level) : "N/A" 
-        }</p>
-        <p><strong>Hours:</strong> ${
-        place.opening_hours?.open_now
-        ? "Open"
-        : "Closed"
-        }</p>
-        <a href="${place.website || "#"}"target=" blank">Visit Website</a>
-        <div>
-        `
-    });
-
-    marker.addListener("click", () => {
-        infowWindow.open(map, marker);
-    });
-
-    restaurantMarkers.push(marker);
-};   
-
- // Show content in the sidebar
- const showSidebarContent = (place) => {
-    const videoContainer = document.getElementById("video-container");
-
-    // Placeholder videos for TikTok or Instagram
-    const videoHTML = `
-    <div class="video=thumbnail">
-    img src="https://via.placeholder.com/150" alt="${place.name} Thumbnail">
-    <p>${place.name}</p>
-    </div>
-    `;
-  
-    videoContainer.innerHTML = `
-    <div>
-    <h3>${place.name}</h3>
-    <p><strong>Address:</strong> ${place.vicinity || "N/A"}</p>
-    <p><strong>Rating:</strong> ${place.rating || "N/A"}</p>
-    <p><strong>Price Level:</strong> ${
-      place.price_level? "$".repeat(place.price_level) : "N/A"
-    }</p>
-    <p><strong>Hours:</strong> ${
-      place.opening_hours?.open_now
-       ? "Open Now!"
-        : "Currently Closed"
-    }</p>
-    <p><strong>Aesthetics:</strong> Beatiful interiors with great vides.</p>
-    <p><strong>Location Size:</strong> Medium-sized space, perfect for groups.</p>
-    ${videoHTML}
-    </div>
+      });
+   
+      const infoWindow = new google.maps.InfoWindow({
+        content: `
+          <div>
+            <h3>${place.name}</h3>
+            <p><strong>Address:</strong> ${place.vicinity || "N/A"}</p>
+            <p><strong>Rating:</strong> ${place.rating || "N/A"}</p>
+            <p><strong>Price Level:</strong> ${
+              place.price_level ? "$".repeat(place.price_level) : "N/A"
+            }</p>
+            <p><strong>Hours:</strong> ${
+              place.opening_hours?.open_now
+                ? "Open Now!"
+                : "Currently Closed"
+            }</p>
+            <a href="${place.website || "#"}" target="_blank">Visit Website</a>
+          </div>
+        `,
+      });
+   
+      marker.addListener("click", () => {
+        infoWindow.open(map, marker);
+      });
+   
+      restaurantMarkers.push(marker);
+    };
+   
+    // Show content in the sidebar
+    const showSidebarContent = (place) => {
+      const videoContainer = document.getElementById("video-container");
+   
+      // Placeholder videos for TikTok or Instagram
+      const videoHTML = `
+      <div class="video=thumbnail">
+      img src="https://via.placeholder.com/150" alt="${place.name} Thumbnail">
+      <p>${place.name}</p>
+      </div>
       `;
-
-  // Text-to-speech
-  const texttospeech = `
-  You selected ${place.name}.
-  It is located at ${place.vicinity}.
-  The rating is ${place.rating || "unavailable"}
-  Enjoy the vibes with your friends and family.
-  `;
-  triggerTextToSpeech(texttospeech);
+   
+      videoContainer.innerHTML = `
+      <div>
+      <h3>${place.name}</h3>
+      <p><strong>Address:</strong> ${place.vicinity || "N/A"}</p>
+      <p><strong>Rating:</strong> ${place.rating || "N/A"}</p>
+      <p><strong>Price Level:</strong> ${
+        place.price_level? "$".repeat(place.price_level) : "N/A"
+      }</p>
+      <p><strong>Hours:</strong> ${
+        place.opening_hours?.open_now
+         ? "Open Now!"
+          : "Currently Closed"
+      }</p>
+      <p><strong>Aesthetics:</strong> Beatiful interiors with great vides.</p>
+      <p><strong>Location Size:</strong> Medium-sized space, perfect for groups.</p>
+      ${videoHTML}
+      </div>
+        `;
+   
+    // Text-to-speech
+    const texttospeech = `
+    You selected ${place.name}.
+    It is located at ${place.vicinity}.
+    The rating is ${place.rating || "unavailable"}
+    Enjoy the vibes with your friends and family.
+    `;
+    triggerTextToSpeech(texttospeech);
+    };
+   
+    // Text-to-speech feature
+    const triggerTextToSpeech = (text) => {
+      const msg = new SpeechSynthesisUtterance(text);
+      speechSynthesis.lang = "en-US";
+      window.speechSynthesis.speak(speech);
+    };
+   
+    // Function to clear restaurant markers
+    const clearMarkers = () => {
+      restaurantMarkers.forEach((marker) => marker.setMap(null));
+      restaurantMarkers.length = 0;
+    };
   };
-
-  // Text-to-speech feature
-  const triggerTextToSpeech = (text) => {
-    const msg = new SpeechSynthesisUtterance(text);
-    speechSynthesis.lang = "en-US";
-    window.speechSynthesis.speak(speech);
-  };
-
-// Function to clear restaurant markers
-const clearMarkers = () => {
-    restaurantMarkers.forEach((marker) => marker.setMap(null));
-    restaurantMarkers.length = 0;
-};
-};
+   
