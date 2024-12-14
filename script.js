@@ -116,6 +116,23 @@ const addRestaurantMarker = (place) => {
     </div>
       `;
 
+  // Text-to-speech
+  const texttospeech = `
+  You selected ${place.name}.
+  It is located at ${place.vicinity}.
+  The rating is ${place.rating || "unavailable"}
+  Enjoy the vibes with your friends and family.
+  `;
+  triggerTextToSpeech(texttospeech);
+  };
+
+  // Text-to-speech feature
+  const triggerTextToSpeech = (text) => {
+    const msg = new SpeechSynthesisUtterance(text);
+    speechSynthesis.lang = "en-US";
+    window.speechSynthesis.speak(speech);
+  };
+
 // Function to clear restaurant markers
 const clearMarkers = () => {
     restaurantMarkers.forEach((marker) => marker.setMap(null));
