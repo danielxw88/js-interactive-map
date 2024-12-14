@@ -1,62 +1,65 @@
 window.onload = () => {
-    // Map center coordinates for Toronto,Ont
+    // Map center coordinates for Toronto, Ontario
     const mapCenter = { lat: 43.65107, lng: -79.347015 };
+   
+
+    document.getElementById("map").style.display = "block";
 
     // Initialize the map
     const map = new google.maps.Map(document.getElementById("map"), {
-        center: mapCenter,
-        zoom: 12,
+      center: mapCenter,
+      zoom: 12,
     });
-
+   
     // API service
     const service = new google.maps.places.PlacesService(map);
-
-    // Search Box
-    const searchBox = document.getElementById("search-Box");
-
-    // Restaurant markers
+   
+    // Search box
+    const searchBox = document.getElementById("search-box");
+   
+    // Array to store restaurant markers
     const restaurantMarkers = [];
-
-    // Search Box Input
-
+   
+    // Handle search box input
     searchBox.addEventListener("keypress", (e) => {
-        if (e.key === "Enter") {
-            const searchInput = searchBox.value;
-
-            if (!searchInput) {
-                alert("Please enter a search term...");
-                return;
-            }
-
-            const request = {
-                location: mapCenter,
-                radius: 50000, // km radius
-                keyword: searchInput,
-                type: "restaurant",
-            };
-
-            service.nearbySearch(request, (results, status) => {
-                if (status === google.maps.places.PlacesServiceStatus.OK) {
-                    clearMarkers();
-                    results.forEach((place) => {
-                        if (place.geometry && place.geometry.location) {
-                            addRestaurantMarker(place);
-                        }
-            });
-        } else {
-            console.error("Failed due to: " + status);
-            alert("Please try new search");
+      if (e.key === "Enter") {
+        const searchInput = searchBox.value;
+   
+        if (!searchInput) {
+          alert("Please enter a search...");
+          return;
         }
+   
+        const request = {
+          location: mapCenter,
+          radius: 50000, // km radius
+          keyword: searchInput,
+          type: "restaurant",
+        };
+   
+        service.nearbySearch(request, (results, status) => {
+          if (status === google.maps.places.PlacesServiceStatus.OK) {
+            clearMarkers();
+            results.forEach((place) => {
+              if (place.geometry && place.geometry.location) {
+                addRestaurantMarker(place);
+              }
+            });
+          } else {
+            console.error("Service failed due to: " + status);
+            alert("No results found for your search!");
+          }
+        });
+      }
     });
-}
-});
-
-// Add marker for restaurant
-const addRestaurantMarker = (place) => {
-    const marker = new google.maps.Marker({
+   
+    // Add a marker for a restaurant
+    const addRestaurantMarker = (place) => {
+      const marker = new google.maps.Marker({
         map: map,
         position: place.geometry.location,
         title: place.name,
+
         });
         const infoWindow = new google.maps.InfoWindow({
             content: `

@@ -1,16 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>food craving feature for map</title>
+  <title>Food Craving Finder</title>
+  <style>
+    #map {
+      height: 500px;
+      width: 100%;
+    }
+    #search-container {
+      margin: 10px;
+    }
+    #search-box {
+      width: 300px;
+      padding: 10px;
+    }
+  </style>
   <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAocdQS4fgY016FzJX-P6JfMAagjdhHnjs&libraries=places"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3RMZ-hZkQ49YuUX9uWb2Dl3ZlVhyjgLc&libraries=places&v"
     defer
   ></script>
   <script src="script.js" defer></script>
 </head>
 <body>
-  
+  <div id="search-container">
+    <input
+      id="search-box"
+      type="text"
+      placeholder="What are you craving? (e.g., pizza, sushi)"
+    />
+  </div>
+  <div id="map"></div>
 </body>
 </html>
