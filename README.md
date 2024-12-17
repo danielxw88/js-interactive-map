@@ -34,7 +34,7 @@ _This GIF showcases the homepage layout and interactive map functionality._
 ---
 
 ## 🎥 **Final Presentation Video**
-[![Watch the Presentation](https://img.youtube.com/vi/-hQWHsddLu0/0.jpg)](https://www.youtube.com/watch?v=-hQWHsddLu0)
+[![Watch the Presentation](https://img.youtube.com/vi/-bGrzk_rS3k/0.jpg)](https://www.youtube.com/watch?v=-bGrzk_rS3k)
 
 _This video provides an overview of our project, its purpose, key features, challenges, and reflections._
 
