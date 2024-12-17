@@ -141,7 +141,7 @@ const clearMarkers = () => {
     restaurantMarkers.forEach((marker) => marker.setMap(null));
     restaurantMarkers.length = 0;
 };
-<<<<<<< HEAD
+
 
 // Clear marker function
 document.getElementById("clear-markers").addEventListener("click", clearMarkers);
@@ -170,4 +170,4 @@ const displayFavourites = () => {
 };
 };
 
->>>>>>> edd78ec26f43e2bca0f14c3ef493f7b8eefef0a8
+ edd78ec26f43e2bca0f14c3ef493f7b8eefef0a8
