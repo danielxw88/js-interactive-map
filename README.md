@@ -27,7 +27,8 @@ Our map integrates **dynamic insights** with an interactive, visually appealing 
 ---
 
 ## 📺 **Demo Video**
-![Homepage and Map Interface](./assets/homepage_map_demo.gif)
+![map_demo (1)](https://github.com/user-attachments/assets/7bb7cf0c-2cb4-4d93-86e9-9e0607db470a)
+
 _This GIF showcases the homepage layout and interactive map functionality._
 ---
 
