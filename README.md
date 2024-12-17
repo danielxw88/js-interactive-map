@@ -30,7 +30,16 @@ Our map integrates **dynamic insights** with an interactive, visually appealing 
 ![map_demo (1)](https://github.com/user-attachments/assets/7bb7cf0c-2cb4-4d93-86e9-9e0607db470a)
 
 _This GIF showcases the homepage layout and interactive map functionality._
+
 ---
+
+## 🎥 **Final Presentation Video**
+[![Watch the Presentation](https://img.youtube.com/vi/-hQWHsddLu0/0.jpg)](https://www.youtube.com/watch?v=-hQWHsddLu0)
+
+_This video provides an overview of our project, its purpose, key features, challenges, and reflections._
+
+---
+
 
 ## 🛠️ **Technologies Used**
 - **Frontend**: HTML, CSS, JavaScript  
@@ -68,8 +77,6 @@ _This GIF showcases the homepage layout and interactive map functionality._
 | Trish Figueroa     | Team Lead & Design/Front-end Developer  | Timeline management, UI enhancement, personalization features, testing and bug fixes |
 
 **Code Reviewers**: Everyone collaboratively reviews pull requests and ensures best practices.
-
-epository/project management, api key/webpage initialization, feature/personalization
 ---
 
 ## 🔗 **Project Resources**
