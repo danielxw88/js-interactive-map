@@ -150,13 +150,6 @@ window.onload = () => {
     showSavedRestaurants();
   };
 
-  // Text-to-speech feature
-  const triggerTextToSpeech = (text) => {
-    const msg = new SpeechSynthesisUtterance(text);
-    speechSynthesis.lang = "en-US";
-    window.speechSynthesis.speak(msg); // Fixed here, using the correct variable 'msg'
-  };
-
   // Function to clear restaurant markers
   const clearMarkers = () => {
     restaurantMarkers.forEach((marker) => marker.setMap(null));
