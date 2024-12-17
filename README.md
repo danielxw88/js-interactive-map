@@ -63,12 +63,13 @@ _This GIF showcases the homepage layout and interactive map functionality._
 ## 👥 **Team Members & Contributions**
 | **Team Member**       | **Role**                 | **Contributions**                         |
 |------------------------|--------------------------|-------------------------------------------|
-| Daniel (Xia) Wang       | HTML, JavaScript Developer    | Main page layout,  search feature, map interactivity, accessibility, food spot details, navigation features testing and bug fixes |
-| Gabriel Hernandez      | HTML, JavaScript Developer     | Main page layout,  search feature, map interactivity, accessibility, food spot details, navigation features testing and bug fixes |
+| Daniel (Xia) Wang       | HTML, JavaScript Developer    | Repository management, API key/Webpage intialization, accessibility, food spot details, navigation features, testing and bug fixes |
+| Gabriel Hernandez      | HTML, JavaScript Developer     | Main page layout,  search feature, map interactivity, accessibility, food spot details, navigation features, testing and bug fixes |
 | Trish Figueroa     | Team Lead & Design/Front-end Developer  | Timeline management, UI enhancement, personalization features, testing and bug fixes |
 
 **Code Reviewers**: Everyone collaboratively reviews pull requests and ensures best practices.
 
+epository/project management, api key/webpage initialization, feature/personalization
 ---
 
 ## 🔗 **Project Resources**
