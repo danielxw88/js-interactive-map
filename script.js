@@ -129,13 +129,39 @@ const addRestaurantMarker = (place) => {
   // Text-to-speech feature
   const triggerTextToSpeech = (text) => {
     const msg = new SpeechSynthesisUtterance(text);
-    speechSynthesis.lang = "en-US";
-    window.speechSynthesis.speak(speech);
+    msg.lang = "en-US";
+    window.speechSynthesis.speak(msg);
   };
 
 // Function to clear restaurant markers
 const clearMarkers = () => {
     restaurantMarkers.forEach((marker) => marker.setMap(null));
     restaurantMarkers.length = 0;
+};
+
+// Clear marker function
+document.getElementById("clear-markers").addEventListener("click", clearMarkers);
+
+//Function to add favourite
+window.addToFavorites = (name, address) => {
+    if (!favouriteSpots.some((spot) => spot.name === name)) {
+        favouriteSpots.push({name, address });
+        displayFavourites();
+    } else {
+        alert("This spot is already in your favorites");
+    }
+};
+
+//Display favorites in the sidebar
+const displayFavourites = () => {
+    const sidebar = document.getElementById("video-container");
+    sidebar.innerHTML = "<h2>Favourite Spots</h2>";
+    favouriteSpots.forEach((spot) => {
+        sidebar.innerHTML += `<div>
+        <p><strong>${spot.name}</strong></p>
+        <p>${spot.address}</p>
+        <button onclick="removeFromFavourites('${spot.name}')">Remove</button>
+        </div>`;
+    });
 };
 };
