@@ -211,8 +211,6 @@ window.onload = () => {
 
   // Call the function on page load to show saved restaurants
   showSavedRestaurants();
-};
-
 
 function init_modal(){
   // Get the modal
